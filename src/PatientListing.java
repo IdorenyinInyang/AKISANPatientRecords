@@ -25,7 +25,9 @@ public class PatientListing {
 		return patientList.get(patientID);
 	} 
 	
-	public static void updatePatientInfo() { 
-		
+	public static void updatePatientInfoFName(int patientID, String fName) {
+		PatientInfo patient = patientList.get(patientID);  // getting specified patient in HashMap
+		patient.setFName(fName);  // setting first name of specified object
+		patient = patientList.replace(patientID, patient); // placing renewed value into HashMap
 	}
 }
