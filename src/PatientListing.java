@@ -1,4 +1,5 @@
 import java.util.*; 
+import java.util.Map.*;
 import java.io.*;
 
 public class PatientListing { 
@@ -29,5 +30,16 @@ public class PatientListing {
 		PatientInfo patient = patientList.get(patientID);  // getting specified patient in HashMap
 		patient.setFName(fName);  // setting first name of specified object
 		patient = patientList.replace(patientID, patient); // placing renewed value into HashMap
+	} 
+	
+	public static int getPatientID(PatientInfo patient) {  
+		int patientID = 0;
+		for (Map.Entry<Integer, PatientInfo> entry : patientList.entrySet()) {
+            if (entry.getValue().equals(patient)) {
+                patientID = entry.getKey();
+            }
+        }  
+		return patientID;
+		
 	}
 }
